@@ -1,9 +1,16 @@
 <template>
-    <div class="person"></div>
+    <div class="person">
+        <h2></h2>
+    </div>
 </template>
 
 <script setup lang="ts">
-    let car = 
+import { reactive } from 'vue';
+
+    let car = reactive({
+        brand:'bmw',
+        price:100
+    })
 </script>
 
 <style scoped>
