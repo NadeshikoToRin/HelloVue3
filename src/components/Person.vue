@@ -3,6 +3,7 @@
         <h2>这是一俩{{car.brand}}车，价值{{car.price}}万</h2>
         <button @click="changePrice">修改价格</button>
         <button @click="changeBrand">修改品牌</button>
+        <button @click="changeCar">修改车</button>
     </div>
 </template>
 
@@ -20,6 +21,9 @@ import { reactive, toRefs } from 'vue';
     function changeBrand(){
         brand.value = 'BYD'
     }
+    function changeCar(){
+        Object.assign(car,{brand:'奔驰',price:50})
+    }
 </script>
 
 <style scoped>
@@ -28,5 +32,8 @@ import { reactive, toRefs } from 'vue';
     box-shadow: 0 0 10px;
     border-radius: 10px;
     padding: 20px;
+}
+.person button{
+    margin: 10px;
 }
 </style>
