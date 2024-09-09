@@ -6,7 +6,12 @@
           <RouterLink 
           :to="{
             name:'detail',
-            query:news
+            params:{
+              id:news.id,
+              title:news.title,
+              content:news.content
+            }
+            
           }"
           >
             {{ news.title }}
