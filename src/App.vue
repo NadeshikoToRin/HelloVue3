@@ -3,8 +3,8 @@
         <Header></Header>
         <!-- 导航区 -->
          <div class="navigate">
-            <RouterLink :to="{path:'/home'}" active-class="active">首页</RouterLink>
-            <RouterLink :to="{path:'/news'}" active-class="active">新闻</RouterLink>
+            <RouterLink :to="{name:'home'}" active-class="active">首页</RouterLink>
+            <RouterLink :to="{name:'news'}" active-class="active">新闻</RouterLink>
             <RouterLink :to="{path:'/about'}" active-class="active">关于</RouterLink>
          </div>
 
