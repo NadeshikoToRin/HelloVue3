@@ -25,19 +25,7 @@ const router = createRouter({
                     name:'detail',
                     path:'detail',
                     component:Detail,
-
-                    // 第一种写法：params
-                    // props:true
-
-                    //第二种写法，函数写法，query
                     props: route => route.query
-
-                    //第三种方法，对象写法
-                    // props:{
-                    //     a:100,
-                    //     b:200,
-                    //     c:300
-                    // }
                 }
             ]
         },

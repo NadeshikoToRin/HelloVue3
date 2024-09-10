@@ -3,14 +3,12 @@
       <ul>
         <!-- 导航区 -->
         <li v-for="news in newsList" :key="news.id">
+          <!-- 需求：点击按钮跳转新闻详情页面 -->
+          <button @click="showNewsDetail(news)">点击查看详情</button>
           <RouterLink 
           :to="{
             name:'detail',
-            query:{
-              id:news.id,
-              title:news.title,
-              content:news.content
-            }
+            query:news
             
           }"
           >
@@ -28,7 +26,8 @@
   
   <script setup lang="ts" name="News">
     import {reactive} from 'vue'
-    import { RouterView,RouterLink } from 'vue-router';
+    import { RouterView,RouterLink,useRouter} from 'vue-router';
+    import  {type NewsInter } from '@/types';
     
 
     const newsList = reactive([
@@ -37,6 +36,20 @@
     {id:'asfdtrfay03',title:'震惊，万万没想到',content:'明天是周一'},
     {id:'asfdtrfay04',title:'好消息！好消息！',content:'快过年了'}
   ])
+
+  //获取router对象
+  const router = useRouter();
+
+  function showNewsDetail(news:NewsInter){
+    router.push({
+      name:'detail',
+      query:{
+        id:news.id,
+        title:news.title,
+        content:news.content
+      }
+    })
+  }
   </script>
   
   <style scoped>
