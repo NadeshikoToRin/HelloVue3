@@ -1,7 +1,7 @@
 <template>
     <div class="count">
-        <h2>当前求和为：{{sum }}</h2>
-        <h3>当前位置：{{ address }}</h3>
+        <h2>当前求和为：{{sum }},放大10倍：{{ tenTimesSum }}</h2>
+        <h3>当前位置：{{ address }},大写：{{ upperAddress }}</h3>
         <select v-model.number="n">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -9,6 +9,7 @@
         </select>
         <button @click="add">add</button>
         <button @click="minus">minus</button>
+        <button @click="modifyAddress">modifyAddress</button>
     </div>
 </template>
 
@@ -22,7 +23,7 @@ import { storeToRefs } from 'pinia';
 
 const countStore = useCountStore();
 
-let {sum , address} = storeToRefs(countStore);
+let {sum , address,tenTimesSum,upperAddress} = storeToRefs(countStore);
 
 // let sum = countStore.sum
 let n = ref(1);
@@ -44,6 +45,10 @@ function add(){
 }
 function minus(){
     countStore.sum -= n.value;
+}
+
+function modifyAddress(){
+    countStore.address = "lanzhou"
 }
 
 </script>

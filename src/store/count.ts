@@ -18,5 +18,11 @@ export const useCountStore = defineStore('count', {
             sum: 6,
             address: "xi'an"
         }
+    },
+    getters:{
+        tenTimesSum:state => state.sum * 10,
+        upperAddress():string{
+            return this.address.toUpperCase();
+        }
     }
 })
