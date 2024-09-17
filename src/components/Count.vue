@@ -1,7 +1,7 @@
 <template>
     <div class="count">
-        <h2>当前求和为：{{countStore.sum }}</h2>
-        <h3>当前位置：{{ countStore.address }}</h3>
+        <h2>当前求和为：{{sum }}</h2>
+        <h3>当前位置：{{ address }}</h3>
         <select v-model.number="n">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -17,7 +17,12 @@ import { ref } from 'vue';
 //引入countStore
 import { useCountStore } from '@/store/count';
 
+//引入storeToRefs
+import { storeToRefs } from 'pinia';
+
 const countStore = useCountStore();
+
+let {sum , address} = storeToRefs(countStore);
 
 // let sum = countStore.sum
 let n = ref(1);

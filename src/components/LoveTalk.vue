@@ -2,19 +2,23 @@
     <div class="talk">
 <button @click="getLoveTalk">获得一句土味情话</button>
 <ul>
-    <li v-for="talk in talkStore.talkList" :key="talk.id">{{ talk.title }}</li>
+    <li v-for="talk in talkList" :key="talk.id">{{ talk.title }}</li>
 </ul>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-import axios from "axios"
-import {nanoid} from 'nanoid'
+
 
 import { useTalkStore } from '@/store/loveTalk';
 
+import { storeToRefs } from 'pinia';
+
+
+
 const talkStore = useTalkStore();
+
+let {talkList} = storeToRefs(talkStore);
 
 
 async function getLoveTalk(){
