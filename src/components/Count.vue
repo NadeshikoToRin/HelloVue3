@@ -37,7 +37,7 @@ function add(){
     //     address:"lanzhou"
     // })
 
-    //第三种,actions
+    //第三种,actions：{function(){return}}
     countStore.increment(n.value)
 
 
