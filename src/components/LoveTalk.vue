@@ -20,10 +20,19 @@ const talkStore = useTalkStore();
 
 let {talkList} = storeToRefs(talkStore);
 
-
+//调用talkStore中的getTalk action获取数据
 async function getLoveTalk(){
     talkStore.getTalk();
 }
+
+//$subscribe方法类似watch方法
+talkStore.$subscribe((mutate,state)=>{
+    console.log("数据发生变化",mutate,state);
+    //key(talkList) : value
+    //Json.stringify讲对象数据转换为string
+    localStorage.setItem('talkList',JSON.stringify(state.talkList))
+    
+})
 
 </script>
 
