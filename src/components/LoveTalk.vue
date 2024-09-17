@@ -25,6 +25,8 @@ async function getLoveTalk(){
     talkStore.getTalk();
 }
 
+
+
 </script>
 
 <style scoped>
